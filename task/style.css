@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0 !important;
+}
+
+html,
+body {
+    height: 100%;
+    text-align: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+h1 {
+    font-size: 58px;
+}
+
+.footer {
+    flex: 0 0 auto;
+}
+
+#header {
+    text-align: center;
+}
+
+
+.container {
+    flex: 1 0 auto;
+}
+
+#search input {
+    display: inline-block;
+    width: 80%;
+    height: 40px;
+    font-size: 18px;
+    margin-top: 161px;
+    border-radius: 10px;
+    border: 2px solid #fc0;
+}
+
+#buttonSearch {
+    border-radius: 10px;
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    background-color: #fc0;
+    color: black;
+    cursor: pointer;
+    vertical-align: bottom;
+    right: 105px;
+}
+
+#buttonSearch span {
+    position: absolute;
+    top: 4px;
+    right: 21px;
+}
+
+a {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+img {
+    margin-top: 23px;
+}
+
+.popupForFavourite, .popupForInfo {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    text-align: left;
+}
+
+#boxInfo {
+    background: rgb(255, 255, 255);
+    border-radius: 14px;
+    box-shadow: 1px 0px 5px rgb(125, 125, 125);
+    box-sizing: border-box;
+    height: 559px;
+    width: 473px;
+    padding: 20px;
+    margin: 100px auto;
+    position: relative;;
+}
+
+#box {
+    background: rgb(255, 255, 255);
+    border-radius: 14px;
+    box-shadow: 1px 0px 5px rgb(125, 125, 125);
+    box-sizing: border-box;
+    height: 559px;
+    width: 962px;
+    padding: 20px;
+    margin: 100px auto;
+    position: relative;;
+}
+
+#boxForFavourite, #boxForInfo {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.close img {
+    position: absolute;
+    cursor: pointer;
+    right: 3px;
+    width: 29px;
+    height: 29px;
+    top: -20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.star {
+    position: relative;
+    top: 0;
+    right: 59px;
+}
+
+.imagesFavourite {
+    float: left;
+}
+
+.footer {
+    color: blue;
+}
+
+.imgInfo {
+    width: 300px;
+    height: 200px;
+}
+
+ul {
+    width: 300px;
+    margin-top: 40px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+li {
+    margin-bottom: 35px;
+    font-size: 20px;
+    color: blue;
+}
+
+span {
+    color: black
+}
+
+#hrefFavourite {
+    color: blue;
+    text-decoration: underline;
+    display: inline-block;
+    position: absolute;
+    right: 73px;
+    top: 66px;
+}
+
+.imgCloseFav {
+    display: inline-block;
+    position: relative;
+    top: -246px;
+    right: 58px;
+}
+
+.favour {
+    cursor: pointer;
+    display: inline-block;
+}
+
+h2 {
+    text-align: center;
+}
