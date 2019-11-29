@@ -5,7 +5,7 @@ let footer = document.querySelector('.footer');
 let favourite = document.getElementById('hrefFavourite');
 let boxFavourite = document.getElementById('boxForFavourite');
 let popupFavorite = document.querySelector('.popupForFavourite');
-// let boxPopupFavorite = document.querySelector('.box');
+let boxPopupFavourite = document.querySelector('#boxFavourite');
 let popupInfo = document.querySelector('.popupForInfo');
 let closeFavorite = document.querySelector('.close');
 let closeInfo = document.querySelectorAll('.close')[1];
@@ -26,7 +26,7 @@ if (localStorage.arr) {
   arrFavourite = JSON.parse(localStorage.arr)
 }
 
-function querySearch(e, b) {
+function querySearch(e) {
   if (e.target.innerHTML === 'Search') {
     pictures.innerHTML = "";
     countForMore = 1
@@ -126,11 +126,42 @@ function Info() {
 
 buttonSearch.addEventListener('click', querySearch);
 favourite.addEventListener('click', Favourite);
-closeFavorite.addEventListener('click', () => {
+closeFavorite.addEventListener('click', (e) => {
+  e.stopPropagation()
   popupFavorite.classList.add("hidden")
 });
 
 closeInfo.addEventListener('click', () => {
   popupInfo.classList.add("hidden")
 });
+boxPopupFavourite.onmousedown = function (event) {
+
+  let shiftX = event.clientX - boxPopupFavourite.getBoundingClientRect().left;
+  let shiftY = event.clientY - boxPopupFavourite.getBoundingClientRect().top;
+
+  // boxPopupFavourite.style.position = 'absolute';
+  boxPopupFavourite.style.zIndex = 1000;
+  moveAt(event.pageX, event.pageY);
+
+  function moveAt(pageX, pageY) {
+    boxPopupFavourite.style.left = pageX - shiftX + 'px';
+    boxPopupFavourite.style.top = pageY - shiftY + 'px';
+  }
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+  }
+
+  document.addEventListener('mousemove', onMouseMove);
+
+  boxPopupFavourite.onmouseup = function () {
+    document.removeEventListener('mousemove', onMouseMove);
+
+    boxPopupFavourite.onmouseup = null;
+  };
+};
+boxPopupFavourite.ondragstart = function () {
+  return false;
+};
+
 
