@@ -38,7 +38,7 @@ function querySearch(e) {
       console.log(result2);
       let more = document.createElement('a');
       footer.innerHTML = "";
-      more.innerHTML = "Далее";
+      more.innerHTML = "Further";
 
       footer.appendChild(more);
 
@@ -127,7 +127,7 @@ function Info() {
 buttonSearch.addEventListener('click', querySearch);
 favourite.addEventListener('click', Favourite);
 closeFavorite.addEventListener('click', (e) => {
-  e.stopPropagation()
+  e.stopPropagation();
   popupFavorite.classList.add("hidden")
 });
 

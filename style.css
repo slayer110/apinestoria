@@ -74,7 +74,7 @@ img {
 
 .popupForFavourite, .popupForInfo {
     position: fixed;
-    z-index: 10000;
+    z-index: 999;
     left: 0;
     top: 0;
     width: 100%;
@@ -86,7 +86,7 @@ img {
 #boxInfo {
     background: rgb(255, 255, 255);
     border-radius: 14px;
-    box-shadow: 1px 0px 5px rgb(125, 125, 125);
+    box-shadow: 1px 0 5px rgb(125, 125, 125);
     box-sizing: border-box;
     height: 559px;
     width: 473px;
@@ -95,22 +95,24 @@ img {
     position: relative;;
 }
 
-#box {
+#boxFavourite {
     background: rgb(255, 255, 255);
     border-radius: 14px;
-    box-shadow: 1px 0px 5px rgb(125, 125, 125);
+    box-shadow: 1px 0 5px rgb(125, 125, 125);
     box-sizing: border-box;
     height: 559px;
     width: 962px;
     padding: 20px;
-    margin: 100px auto;
-    position: relative;;
+    position: absolute;
 }
 
 #boxForFavourite, #boxForInfo {
-    width: 100%;
-    height: 100%;
+    width: 98%;
+    height: 90%;
     overflow: auto;
+    position: absolute;
+    top: 37px;
+    left: 9px;
 }
 
 .close img {
