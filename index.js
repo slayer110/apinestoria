@@ -18,7 +18,7 @@ let imgInfo = document.querySelector('.imgInfo');
 let countForMore = 1;
 let arrFavourite = [];
 
-function Save() {
+function save() {
   localStorage.arr = JSON.stringify(arrFavourite)
 }
 
@@ -35,7 +35,6 @@ function querySearch(e) {
   fetch(`https://cors-anywhere.herokuapp.com/api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&listing_type=rent&number_of_results=4&page=${countForMore}&country=uk&listing_type=buy&place_name=${text}`).then(
     response => response.json()).then(result1 => result1.response)
     .then(result2 => {
-      console.log(result2);
       let more = document.createElement('a');
       footer.innerHTML = "";
       more.innerHTML = "Further";
@@ -64,11 +63,11 @@ function querySearch(e) {
           if (auxArr.indexOf(elem.lister_url) >= 0) {
             icon.src = "images/noactive.png";
             arrFavourite.splice(auxArr.indexOf(elem.lister_url), 1);
-            Save();
+            save();
           } else {
             icon.src = "images/active.png";
             arrFavourite.push(elem);
-            Save();
+            save();
           }
         });
         picture.innerHTML = `<img src=${elem.img_url}>`;
@@ -108,7 +107,7 @@ function Favourite() {
       let auxArr = arr.map((item) => item.img_url);
       arr.splice(auxArr.indexOf(e.target.previousSibling.src), 1);
       e.target.parentElement.remove();
-      Save();
+      save();
       let images = pictures.querySelectorAll('img');
       let imgArr = [...images];
       imgArr.forEach((item) => {
@@ -153,7 +152,9 @@ boxPopupFavourite.onmousedown = function (event) {
   }
 
   document.addEventListener('mousemove', onMouseMove);
-
+  document.addEventListener('onmouseout', () => {
+    document.removeEventListener('mousemove', onMouseMove)
+  });
   boxPopupFavourite.onmouseup = function () {
     document.removeEventListener('mousemove', onMouseMove);
 
