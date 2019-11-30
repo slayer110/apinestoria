@@ -33,7 +33,9 @@ function querySearch(e) {
   }
   let text = searchInput.value.toLowerCase();
   fetch(`https://cors-anywhere.herokuapp.com/api.nestoria.co.uk/api?encoding=json&pretty=1&action=search_listings&listing_type=rent&number_of_results=4&page=${countForMore}&country=uk&listing_type=buy&place_name=${text}`).then(
-    response => response.json()).then(result1 => result1.response)
+    response => response.json()).then(objResponse =>
+    objResponse.response
+  )
     .then(result2 => {
       let more = document.createElement('a');
       footer.innerHTML = "";
