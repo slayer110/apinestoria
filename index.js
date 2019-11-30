@@ -18,6 +18,11 @@ let imgInfo = document.querySelector('.imgInfo');
 let countForMore = 1;
 let arrFavourite = [];
 
+function More(e) {
+  countForMore++;
+  querySearch(e)
+}
+
 function save() {
   localStorage.arr = JSON.stringify(arrFavourite)
 }
@@ -42,12 +47,6 @@ function querySearch(e) {
       more.innerHTML = "Further";
 
       footer.appendChild(more);
-
-      function More(e) {
-        countForMore++;
-        querySearch(e)
-      }
-
       more.addEventListener('click', More);
       let arrPictures = result2.listings.map((elem) => {
         let picture = document.createElement('a');
@@ -65,12 +64,11 @@ function querySearch(e) {
           if (auxArr.indexOf(elem.lister_url) >= 0) {
             icon.src = "images/noactive.png";
             arrFavourite.splice(auxArr.indexOf(elem.lister_url), 1);
-            save();
           } else {
             icon.src = "images/active.png";
             arrFavourite.push(elem);
-            save();
           }
+          save();
         });
         picture.innerHTML = `<img src=${elem.img_url}>`;
         picture.addEventListener('click', () => {
