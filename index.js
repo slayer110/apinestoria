@@ -143,8 +143,22 @@ boxPopupFavourite.onmousedown = function (event) {
   moveAt(event.pageX, event.pageY);
 
   function moveAt(pageX, pageY) {
-    boxPopupFavourite.style.left = pageX - shiftX + 'px';
-    boxPopupFavourite.style.top = pageY - shiftY + 'px';
+    let newLeft = pageX - shiftX;
+    let newTop = pageY - shiftY;
+    if (newLeft < -boxPopupFavourite.offsetWidth / 2) {
+      newLeft = -boxPopupFavourite.offsetWidth / 2
+    }
+    if (newLeft > document.documentElement.clientWidth - boxPopupFavourite.offsetWidth / 2) {
+      newLeft = document.documentElement.clientWidth - boxPopupFavourite.offsetWidth / 2
+    }
+    if (newTop < -boxPopupFavourite.offsetWidth / 2) {
+      newTop = -boxPopupFavourite.offsetWidth / 2
+    }
+    if (newTop > document.documentElement.clientHeight - boxPopupFavourite.offsetHeight / 2) {
+      newTop = document.documentElement.clientHeight - boxPopupFavourite.offsetHeight / 2
+    }
+    boxPopupFavourite.style.left = newLeft + 'px';
+    boxPopupFavourite.style.top = newTop + 'px';
   }
 
   function onMouseMove(event) {
@@ -155,10 +169,10 @@ boxPopupFavourite.onmousedown = function (event) {
   document.addEventListener('onmouseout', () => {
     document.removeEventListener('mousemove', onMouseMove)
   });
-  boxPopupFavourite.onmouseup = function () {
+  window.onmouseup = function () {
     document.removeEventListener('mousemove', onMouseMove);
 
-    boxPopupFavourite.onmouseup = null;
+    window.onmouseup = null;
   };
 };
 boxPopupFavourite.ondragstart = function () {
