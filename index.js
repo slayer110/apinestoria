@@ -18,7 +18,7 @@ let imgInfo = document.querySelector('.imgInfo');
 let countForMore = 1;
 let arrFavourite = [];
 
-function More(e) {
+function more(e) {
   countForMore++;
   querySearch(e)
 }
@@ -47,7 +47,7 @@ function querySearch(e) {
       more.innerHTML = "Further";
 
       footer.appendChild(more);
-      more.addEventListener('click', More);
+      more.addEventListener('click', more);
       let arrPictures = result2.listings.map((elem) => {
         let picture = document.createElement('a');
         let icon = document.createElement('img');
