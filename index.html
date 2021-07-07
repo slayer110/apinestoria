@@ -1,0 +1,66 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Недвижимость</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+
+<div class="wrapper">
+    <div class="container">
+        <div id="header">
+            <h1>Property for rent</h1>
+            <a id="hrefFavourite">
+                Favourites
+            </a>
+        </div>
+        <div id="Search">
+            <input type="text">
+            <div id="buttonSearch"><span>Search</span></div>
+        </div>
+        <div id="pictures"></div>
+        <div id="hrefs"></div>
+        <div class="popupForFavourite hidden">
+            <div id="boxFavourite">
+                <h2>Favourites</h2>
+                <div class="close"><img src="images/close.png"></div>
+                <div id="boxForFavourite"></div>
+            </div>
+        </div>
+        <div class="popupForInfo hidden">
+            <div id="boxInfo">
+                <div class="close"><img src="images/close.png"></div>
+                <div id="boxForInfo">
+                    <h2>Info</h2>
+                    <img class="imgInfo"></img>
+                    <ul>
+                        <li>Bathrooms number:
+                            <span class="bathroom"></span>
+                        </li>
+                        <li>Rooms numbers:
+                            <span class="room"></span>
+                        </li>
+                        <li>Address:
+                            <span class="address"></span>
+                        </li>
+                        <li>Price:
+                            <span class="price"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer"></div>
+</div>
+<script src="index.js"></script>
+
+</body>
+</html>
+
+
+
+
+
